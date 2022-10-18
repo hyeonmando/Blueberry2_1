@@ -6,10 +6,58 @@
     android:layout_height="match_parent">
 
 
+    <TextView
+        android:id="@+id/find_bir2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="273dp"
+        android:fontFamily="@font/notosanskrbold"
+        android:text="생년월일"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_pwck" />
+
+    <TextView
+        android:id="@+id/find_pw_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="273dp"
+        android:fontFamily="@font/notosanskrbold"
+        android:text="아이디"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/join_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_name" />
+
+    <TextView
+        android:id="@+id/find_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="273dp"
+        android:fontFamily="@font/notosanskrbold"
+        android:text="이름"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/join_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/join_button"
         android:layout_width="248dp"
         android:layout_height="65dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/round_btn"
         android:fontFamily="@font/notosanskrbold"
         android:gravity="center"
@@ -19,50 +67,81 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
-        app:layout_constraintVertical_bias="0.398"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/join_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="-15dp"
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/join_pwck"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_pw" />
+
+    <TextView
+        android:id="@+id/join_pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginEnd="273dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/notosanskrbold"
+        android:text="비밀번호"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/join_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/join_email"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/join_pwck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="비밀번호 확인"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/find_bir2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/join_password"
+        app:layout_constraintTop_toBottomOf="@+id/join_password" />
 
     <EditText
         android:id="@+id/editTextNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="-15dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="생년월일    ex) 010913"
         android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/join_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_pwck" />
+        app:layout_constraintTop_toBottomOf="@+id/find_bir2" />
 
     <EditText
         android:id="@+id/join_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="-14dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:hint="이름"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/join_email"
-        app:layout_constraintEnd_toEndOf="@+id/check_button"
-        app:layout_constraintHorizontal_bias="0.871"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/find_pw_id2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/find_name2" />
 
     <Button
         android:id="@+id/check_button"
@@ -75,31 +154,20 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/join_pwck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="316dp"
-        android:ems="10"
-        android:hint="비밀번호 확인"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/join_password" />
-
-    <EditText
         android:id="@+id/join_email"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginTop="-15dp"
         android:layout_marginEnd="6dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:hint="이메일"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/join_password"
+        app:layout_constraintBottom_toTopOf="@+id/join_pw"
         app:layout_constraintEnd_toStartOf="@+id/check_button"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/join_name" />
+        app:layout_constraintStart_toStartOf="@+id/join_name"
+        app:layout_constraintTop_toBottomOf="@+id/find_pw_id2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
