@@ -1,8 +1,12 @@
 package  com.example.blueberry2.ui.login;
 
 import android.app.Activity;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -22,18 +26,30 @@ import com.example.blueberry2.R;
 import com.example.blueberry2.ui.login.LoginViewModel;
 import com.example.blueberry2.ui.login.LoginViewModelFactory;
 import com.example.blueberry2.databinding.ActivityLoginBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Button login;
+    EditText username, password;
+    private FirebaseAuth firebaseAuth;
+
     private LoginViewModel loginViewModel;
-private ActivityLoginBinding binding;
+    private ActivityLoginBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
-     binding = ActivityLoginBinding.inflate(getLayoutInflater());
-     setContentView(binding.getRoot());
+        firebaseAuth =  FirebaseAuth.getInstance();
+
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
@@ -58,6 +74,7 @@ private ActivityLoginBinding binding;
                 }
             }
         });
+
 
         loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
@@ -119,7 +136,40 @@ private ActivityLoginBinding binding;
             }
         });
     }
+    //이메일 로그인
+    private void loginEmailUser(String email, String password)
+    {
+        FirebaseAuth mAuth = null;
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = mAuth.getCurrentUser();
 
+                            if(user != null)
+                            {
+                                Intent intent = new Intent(getApplication(), HomeActivity.class);
+                                startActivity(intent);
+                                finish();//자기자신 사라짐
+                            }
+
+                            updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(LoginActivity.this, "로그인 실패",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                            // ...
+                        }
+                    }
+
+                    private void updateUI(FirebaseUser user) {
+                    }
+
+                });
+    }
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
