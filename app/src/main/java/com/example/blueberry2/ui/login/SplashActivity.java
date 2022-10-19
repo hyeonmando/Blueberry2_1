@@ -6,7 +6,6 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.blueberry2.MainActivity;
 import com.example.blueberry2.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -18,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashActivity.this, LogInActivity.class);
                 startActivity(intent);
 
 
@@ -26,4 +25,10 @@ public class SplashActivity extends AppCompatActivity {
         }, 3000);
 
     }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
 }
+
