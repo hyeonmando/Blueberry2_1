@@ -1,4 +1,4 @@
-package com.example.blueberry2.ui.login;
+package com.example.blueberry2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.blueberry2.MainActivity;
-import com.example.blueberry2.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -51,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
                         mAuth.getCurrentUser();
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         Toast.makeText(RegisterActivity.this, "등록 완료", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {

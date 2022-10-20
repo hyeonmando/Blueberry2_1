@@ -1,10 +1,8 @@
-package com.example.blueberry2.ui.login;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.blueberry2;
 
 import android.os.Bundle;
 
-import com.example.blueberry2.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
