@@ -1,12 +1,10 @@
-package com.example.blueberry2.ui.login;
+package com.example.blueberry2;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.blueberry2.R;
 
 public class SplashActivity extends AppCompatActivity {
     @Override
@@ -19,6 +17,7 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(SplashActivity.this, LogInActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
 
             }

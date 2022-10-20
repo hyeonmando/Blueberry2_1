@@ -1,5 +1,6 @@
-package  com.example.blueberry2.ui.login;
+package  com.example.blueberry2;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.blueberry2.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,8 +24,10 @@ public class LogInActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private Button buttonLogIn;
     private Button buttonSignUp;
+    private Button buttonFindID;
+    private Button buttonFindPW;
 
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,28 @@ public class LogInActivity extends AppCompatActivity {
 
 
 
+        buttonFindID = (Button) findViewById(R.id.btn_id);
+        buttonFindID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // FindIDActivity 연결
+                Intent intent = new Intent(LogInActivity.this, FindIDActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            }
+        });
+
+        buttonFindPW = (Button) findViewById(R.id.btn_pw);
+        buttonFindPW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // FindPWActivity 연결
+                Intent intent = new Intent(LogInActivity.this, FindPWActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            }
+        });
+
         buttonSignUp = (Button) findViewById(R.id.btn_reg);
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,9 +69,9 @@ public class LogInActivity extends AppCompatActivity {
                 // SignUpActivity 연결
                 Intent intent = new Intent(LogInActivity.this, RegisterActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
             }
         });
-
 
 
         buttonLogIn = (Button) findViewById(R.id.btn_login);
@@ -69,6 +93,7 @@ public class LogInActivity extends AppCompatActivity {
                 if (user != null) {
                     Intent intent = new Intent(LogInActivity.this, HomeActivity.class);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                     finish();
                 } else {
                 }
@@ -105,4 +130,7 @@ public class LogInActivity extends AppCompatActivity {
             firebaseAuth.removeAuthStateListener(firebaseAuthListener);
         }
     }
+
 }
+
+
