@@ -91,7 +91,7 @@
         android:layout_height="65dp"
         android:layout_gravity="start"
         android:background="@drawable/round_btn"
-        android:enabled="false"
+        android:enabled="true"
         android:fontFamily="@font/notosanskrmedium"
 
         android:gravity="center"
