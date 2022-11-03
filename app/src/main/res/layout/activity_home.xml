@@ -82,6 +82,17 @@
             android:layout_marginStart="40dp"
             tools:ignore="MissingConstraints"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/btn_write"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="movewrite"
+            android:text="photo_upload"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="166dp"
+            tools:layout_editor_absoluteY="593dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -149,12 +160,14 @@
                 android:background="@drawable/round_btn_home"
                 tools:srcCompat="@tools:sample/avatars" />
 
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:orientation="vertical"></LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
